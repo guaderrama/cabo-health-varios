@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo Hacer Queso Probiótico y Vegetales Fermentados — Cabo Health</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #fefce8 0%, #eefbf3 100%);
+        }
+        .section-title {
+            @apply text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center;
+        }
+        .card {
+            @apply bg-white rounded-xl shadow-lg p-6 md:p-8 hover:shadow-2xl transition-shadow duration-300;
+        }
+        .nav-link {
+            @apply px-4 py-2 text-gray-600 font-semibold rounded-md hover:bg-emerald-100 hover:text-emerald-700 transition-colors;
+        }
+        .nav-link.active {
+            @apply bg-emerald-100 text-emerald-700;
+        }
+        #scrollToTopBtn {
+            display: none;
+        }
+        /* For checked ingredients */
+        input[type="checkbox"] {
+            @apply h-5 w-5 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500;
+        }
+        input[type="checkbox"]:checked + label {
+            text-decoration: line-through;
+            color: #9ca3af; /* gray-400 */
+        }
+        /* Print Button Style */
+        .print-btn {
+            @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors mt-6;
+        }
+        /* Styles for scroll animation */
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* FAQ Accordion */
+        details > summary {
+            list-style: none;
+            cursor: pointer;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary svg {
+            transform: rotate(180deg);
+        }
+
+        /* Print Styles */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .print-section, .print-section * {
+                visibility: visible;
+            }
+            .print-section {
+                position: absolute;
+                left: 20px;
+                top: 20px;
+                right: 20px;
+                width: auto;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-700">
+
+    <!-- Header Section -->
+    <header class="gradient-bg pt-16 pb-8 md:pt-24 md:pb-12 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-emerald-900 mb-4" data-translate-key="main_title">
+                Recetas Probióticas con Super Gut Yogurth
+            </h1>
+            <p class="text-lg md:text-xl text-emerald-800 max-w-3xl mx-auto mb-8" data-translate-key="main_subtitle">
+                Transforma tu yogur en deliciosos y saludables alimentos funcionales.
+            </p>
+            <img id="main-header-image" src="https://placehold.co/1200x400/a7f3d0/14532d?text=Alimentos+Probióticos+Deliciosos" alt="Una variedad de alimentos fermentados como queso, chucrut y kéfir" class="rounded-xl shadow-lg mx-auto w-full max-w-5xl" data-translate-alt-key="main_image_alt">
+        </div>
+    </header>
+    
+    <!-- Sticky Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-md no-print">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center items-center py-2 flex-wrap">
+                <div class="flex justify-center items-center py-2 space-x-2 md:space-x-4 overflow-x-auto">
+                    <a href="#receta-queso" class="nav-link" data-translate-key="nav_cheese">🧀 Queso</a>
+                    <a href="#usos-suero" class="nav-link" data-translate-key="nav_whey">💧 Usos del Suero</a>
+                    <a href="#receta-vegetales-general" class="nav-link" data-translate-key="nav_veggies">🥕 Vegetales</a>
+                    <a href="#receta-chucrut-kimchi" class="nav-link" data-translate-key="nav_sauerkraut">🥬 Chucrut y Kimchi</a>
+                    <a href="#comparativa" class="nav-link" data-translate-key="nav_comparison">🧬 Comparativa</a>
+                    <a href="#faq" class="nav-link" data-translate-key="nav_faq">❓ FAQ</a>
+                </div>
+                <button id="lang-switcher" class="ml-4 px-4 py-2 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-colors shadow-sm text-sm" aria-label="Cambiar idioma a Inglés" data-translate-aria-label="lang_switcher_aria">English</button>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16">
+
+        <!-- ===== QUESO PROBIÓTICO ===== -->
+        <section id="receta-queso" class="pt-8 -mt-8">
+            <div class="mb-20 text-center max-w-4xl mx-auto fade-in-on-scroll">
+                 <h2 class="section-title" data-translate-key="cheese_title">🧀 Receta de Queso Probiótico</h2>
+                <p class="text-lg mb-4" data-translate-key="cheese_intro_1">El <strong>Super Gut Yogurth</strong> de Cabo Health está diseñado para <span class="text-emerald-700 font-semibold">reparar la microbiota intestinal, fortalecer la inmunidad y equilibrar el eje intestino-cerebro.</span></p>
+                <p class="text-lg" data-translate-key="cheese_intro_2">Con este método, puedes transformarlo en un <strong>queso fresco, firme y totalmente probiótico</strong>, ideal para personas con SIBO, permeabilidad intestinal o digestiones sensibles.</p>
+            </div>
+
+            <div class="mb-20 fade-in-on-scroll">
+                <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center" data-translate-key="cheese_method_title">🧫 Método “en frío”</h3>
+                <p class="text-center text-lg max-w-3xl mx-auto mb-12" data-translate-key="cheese_method_subtitle">Este método no utiliza calor, lo que permite conservar activas las cepas vivas del Super Gut Yogurth.</p>
+                
+                <div class="grid md:grid-cols-2 gap-10" id="card-queso">
+                    <div class="card">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-6" data-translate-key="ingredients_materials_title">🧂 Ingredientes y Materiales</h4>
+                        <div class="space-y-3 text-lg">
+                            <div class="flex items-center"><input id="ing-yogur" type="checkbox"><label for="ing-yogur" class="ml-3" data-translate-key="cheese_ingredient_1">1 litro de <strong>Super Gut Yogurth</strong></label></div>
+                            <div class="flex items-center"><input id="ing-manta" type="checkbox"><label for="ing-manta" class="ml-3" data-translate-key="cheese_ingredient_2">1 <strong>manta de cielo</strong> o muselina</label></div>
+                            <div class="flex items-center"><input id="ing-colador" type="checkbox"><label for="ing-colador" class="ml-3" data-translate-key="cheese_ingredient_3">1 colador grande o molde de queso</label></div>
+                            <div class="flex items-center"><input id="ing-recipiente" type="checkbox"><label for="ing-recipiente" class="ml-3" data-translate-key="cheese_ingredient_4">1 recipiente hondo para suero</label></div>
+                            <div class="flex items-center"><input id="ing-peso" type="checkbox"><label for="ing-peso" class="ml-3" data-translate-key="cheese_ingredient_5">1 frasco con agua o peso ligero</label></div>
+                        </div>
+                    </div>
+                    <div class="card bg-emerald-50 border-emerald-200 border">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-6" data-translate-key="procedure_title">🧊 Procedimiento</h4>
+                        <ol class="space-y-4 text-lg list-decimal list-inside">
+                            <li data-translate-key="cheese_step_1">Coloca la tela sobre el colador y <strong>vierte el yogur</strong>.</li>
+                            <li data-translate-key="cheese_step_2">Cubre y refrigera (4–6 °C) para escurrir.</li>
+                            <li data-translate-key="cheese_step_3">Deja escurrir entre <strong>24 y 36 horas</strong>.</li>
+                            <li data-translate-key="cheese_step_4">En las <strong>últimas 8 horas</strong>, coloca un peso ligero.</li>
+                            <li data-translate-key="cheese_step_5">Cuando deje de gotear, retira la masa.</li>
+                        </ol>
+                        <button onclick="printRecipe('card-queso')" class="print-btn no-print">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
+                            <span data-translate-key="print_recipe_btn">Imprimir Receta</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-20 grid md:grid-cols-2 gap-10 fade-in-on-scroll">
+                <div class="bg-amber-100 border border-amber-300 rounded-xl p-8">
+                    <h4 class="text-2xl font-bold text-amber-900 mb-4" data-translate-key="texture_tips_title">💡 Consejos de Textura</h4>
+                    <p class="text-lg mb-2" data-translate-key="texture_tip_1"><strong>24 horas →</strong> Textura cremosa, tipo <em>labneh</em>.</p>
+                    <p class="text-lg" data-translate-key="texture_tip_2"><strong>36 horas + peso →</strong> Textura firme, tipo <em>panela fresca</em>.</p>
+                </div>
+                <div class="bg-blue-100 border border-blue-300 rounded-xl p-8">
+                    <h4 class="text-2xl font-bold text-blue-900 mb-4" data-translate-key="final_result_title">🌿 Resultado Final del Queso</h4>
+                    <ul class="space-y-2 text-lg">
+                        <li data-translate-key="final_result_texture"><strong>Textura:</strong> Compacta, fresca, tipo panela.</li>
+                        <li data-translate-key="final_result_flavor"><strong>Sabor:</strong> Suave, ligeramente ácido.</li>
+                        <li data-translate-key="final_result_properties"><strong>Propiedades:</strong> Probiótico, sin lactosa.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-12 fade-in-on-scroll no-print" data-share-section="cheese"></div>
+        </section>
+
+        <!-- ===== USOS DEL SUERO ===== -->
+        <section id="usos-suero" class="border-t-4 pt-16 mt-8 border-gray-200 border-dashed fade-in-on-scroll">
+            <div class="text-center max-w-4xl mx-auto">
+                 <h2 class="section-title" data-translate-key="whey_title">💧 ¿Qué Hacer con el Suero?</h2>
+                 <p class="text-lg mb-12" data-translate-key="whey_subtitle">¡No lo tires, es oro líquido! Contiene probióticos y postbióticos. Aquí tienes algunas ideas:</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="card text-center">
+                    <p class="text-5xl mb-4">🥕</p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2" data-translate-key="whey_use_1_title">Fermentar Vegetales</h3>
+                    <p data-translate-key="whey_use_1_desc">Úsalo como iniciador para chucrut, pepinos o zanahorias.</p>
+                </div>
+                <div class="card text-center">
+                    <p class="text-5xl mb-4">🥤</p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2" data-translate-key="whey_use_2_title">Refuerzo para Microbiota</h3>
+                    <p data-translate-key="whey_use_2_desc">Toma 1 cucharada al día directamente para un extra de probióticos.</p>
+                </div>
+                <div class="card text-center">
+                    <p class="text-5xl mb-4">🌱</p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2" data-translate-key="whey_use_3_title">Fertilizante de Plantas</h3>
+                    <p data-translate-key="whey_use_3_desc">Dilúyelo en agua (1:20) y úsalo para regar tus plantas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== VEGETALES FERMENTADOS ===== -->
+        <section id="receta-vegetales-general" class="border-t-4 pt-16 mt-16 border-gray-200 border-dashed fade-in-on-scroll">
+            <!-- Main container for this section to ensure alignment -->
+            <div class="max-w-5xl mx-auto">
+                <div class="mb-16">
+                     <h2 class="section-title" data-translate-key="veggies_title">🥕 Receta: Lacto-fermentado con Suero Vegetal</h2>
+                     <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12" data-translate-key="veggies_subtitle">Ideal para crear verduras crujientes y probióticas, usando el suero como un potente iniciador para acelerar la fermentación y aumentar la diversidad de bacterias beneficiosas.</p>
+                
+                     <div class="card bg-emerald-50 border-emerald-200 border">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center" data-translate-key="veggies_benefits_title">🌟 Beneficios Clave al Usar Suero</h3>
+                        <ul class="space-y-6 md:space-y-0 text-lg text-center grid md:grid-cols-3 gap-6">
+                            <li class="flex items-center flex-col">
+                                <span class="text-4xl mb-3">🛡️</span>
+                                <span class="font-semibold text-gray-800" data-translate-key="veggies_benefit_1_title">Previene Mohos</span>
+                                <span class="text-sm text-gray-600 mt-1" data-translate-key="veggies_benefit_1_desc">Baja el pH rápidamente</span>
+                            </li>
+                            <li class="flex items-center flex-col">
+                                <span class="text-4xl mb-3">⚡</span>
+                                <span class="font-semibold text-gray-800" data-translate-key="veggies_benefit_2_title">Acelera el Proceso</span>
+                                <span class="text-sm text-gray-600 mt-1" data-translate-key="veggies_benefit_2_desc">Fermentación más rápida</span>
+                            </li>
+                            <li class="flex items-center flex-col">
+                                <span class="text-4xl mb-3">🌿</span>
+                                <span class="font-semibold text-gray-800" data-translate-key="veggies_benefit_3_title">Aumenta Probióticos</span>
+                                <span class="text-sm text-gray-600 mt-1" data-translate-key="veggies_benefit_3_desc">Mayor diversidad bacteriana</span>
+                            </li>
+                        </ul>
+                     </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-10" id="card-vegetales">
+                     <div class="card">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6" data-translate-key="ingredients_materials_title">🧂 Ingredientes y Materiales</h3>
+                        <div class="space-y-3 text-lg">
+                            <div class="flex items-center"><input id="ing-veg" type="checkbox"><label for="ing-veg" class="ml-3" data-translate-key="veggies_ingredient_1">2 tazas de vegetales firmes</label></div>
+                            <div class="flex items-center"><input id="ing-suero-veg" type="checkbox"><label for="ing-suero-veg" class="ml-3" data-translate-key="veggies_ingredient_2">4 cdas de suero (whey)</label></div>
+                            <div class="flex items-center"><input id="ing-sal-veg" type="checkbox"><label for="ing-sal-veg" class="ml-3" data-translate-key="veggies_ingredient_3">½ a 1 cdta de sal sin refinar</label></div>
+                            <div class="flex items-center"><input id="ing-agua-veg" type="checkbox"><label for="ing-agua-veg" class="ml-3" data-translate-key="veggies_ingredient_4">Agua filtrada</label></div>
+                            <div class="flex items-center"><input id="ing-frasco-veg" type="checkbox"><label for="ing-frasco-veg" class="ml-3" data-translate-key="veggies_ingredient_5">Frasco de vidrio y peso</label></div>
+                        </div>
+                    </div>
+                    <div class="card bg-sky-50 border-sky-200 border">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6" data-translate-key="procedure_title">🧊 Procedimiento</h3>
+                        <ol class="space-y-4 text-lg list-decimal list-inside">
+                            <li data-translate-key="veggies_step_1"><strong>Preparar:</strong> Lavar y cortar vegetales.</li>
+                            <li data-translate-key="veggies_step_2"><strong>Mezclar:</strong> Combinar suero, sal y agua.</li>
+                            <li data-translate-key="veggies_step_3"><strong>Empacar:</strong> Poner vegetales en el frasco.</li>
+                            <li data-translate-key="veggies_step_4"><strong>Cubrir:</strong> Verter la salmuera sobre los vegetales.</li>
+                            <li data-translate-key="veggies_step_5"><strong>Presionar:</strong> Usar un peso para sumergirlos.</li>
+                            <li data-translate-key="veggies_step_6"><strong>Fermentar:</strong> De 3 a 7 días en un lugar fresco.</li>
+                            <li data-translate-key="veggies_step_7"><strong>Almacenar:</strong> Refrigerar al gusto.</li>
+                        </ol>
+                        <button onclick="printRecipe('card-vegetales')" class="print-btn no-print"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg><span data-translate-key="print_recipe_btn">Imprimir Receta</span></button>
+                    </div>
+                </div>
+                 <div class="text-center mt-12 fade-in-on-scroll no-print" data-share-section="vegetables"></div>
+            </div>
+        </section>
+
+        <!-- ===== OTRAS RECETAS ===== -->
+        <section id="receta-chucrut-kimchi" class="border-t-4 pt-16 mt-16 border-gray-200 border-dashed fade-in-on-scroll">
+            <h2 class="section-title" data-translate-key="other_recipes_title">🥬 Otras Recetas de Fermentados</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="card bg-green-50 border-green-200 border" id="card-chucrut">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6" data-translate-key="sauerkraut_title">Chucrut con Suero</h3>
+                    <div class="space-y-3 text-lg mb-6">
+                         <div class="flex items-center"><input id="ing-col" type="checkbox"><label for="ing-col" class="ml-3" data-translate-key="sauerkraut_ingredient_1">1 kg de col (repollo)</label></div>
+                         <div class="flex items-center"><input id="ing-suero-ch" type="checkbox"><label for="ing-suero-ch" class="ml-3" data-translate-key="sauerkraut_ingredient_2">1-2 cdas de suero</label></div>
+                         <div class="flex items-center"><input id="ing-sal-ch" type="checkbox"><label for="ing-sal-ch" class="ml-3" data-translate-key="sauerkraut_ingredient_3">15-20g de sal</label></div>
+                    </div>
+                    <ol class="space-y-2 text-lg list-decimal list-inside">
+                        <li data-translate-key="sauerkraut_step_1">Cortar la col y masajear con sal.</li>
+                        <li data-translate-key="sauerkraut_step_2">Añadir suero y mezclar.</li>
+                        <li data-translate-key="sauerkraut_step_3">Empacar en frasco y fermentar 3-7 días.</li>
+                    </ol>
+                    <button onclick="printRecipe('card-chucrut')" class="print-btn no-print"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg><span data-translate-key="print_recipe_btn">Imprimir Receta</span></button>
+                </div>
+                <div class="card bg-red-50 border-red-200 border" id="card-kimchi">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6" data-translate-key="kimchi_title">Kimchi con Suero</h3>
+                    <div class="space-y-3 text-lg mb-6">
+                        <div class="flex items-center"><input id="ing-napa" type="checkbox"><label for="ing-napa" class="ml-3" data-translate-key="kimchi_ingredient_1">1 col napa</label></div>
+                        <div class="flex items-center"><input id="ing-veg-kim" type="checkbox"><label for="ing-veg-kim" class="ml-3" data-translate-key="kimchi_ingredient_2">1 taza vegetales (rábano, etc.)</label></div>
+                        <div class="flex items-center"><input id="ing-suero-kim" type="checkbox"><label for="ing-suero-kim" class="ml-3" data-translate-key="kimchi_ingredient_3">1-2 cdas de suero</label></div>
+                        <div class="flex items-center"><input id="ing-pasta-kim" type="checkbox"><label for="ing-pasta-kim" class="ml-3" data-translate-key="kimchi_ingredient_4">Pasta de especias (ajo, jengibre, chile)</label></div>
+                    </div>
+                    <ol class="space-y-2 text-lg list-decimal list-inside">
+                        <li data-translate-key="kimchi_step_1">Cortar col, masajear con sal, reposar 1-2h.</li>
+                        <li data-translate-key="kimchi_step_2">Mezclar suero con pasta de especias.</li>
+                        <li data-translate-key="kimchi_step_3">Combinar todo y empacar en frasco.</li>
+                        <li data-translate-key="kimchi_step_4">Fermentar 3-7 días.</li>
+                    </ol>
+                    <button onclick="printRecipe('card-kimchi')" class="print-btn no-print"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg><span data-translate-key="print_recipe_btn">Imprimir Receta</span></button>
+                </div>
+            </div>
+
+            <!-- Salt Calculator -->
+            <div class="card mt-10 bg-yellow-50 border-yellow-200 border" id="salt-calculator">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center" data-translate-key="salt_calculator_title">🧮 Calculadora de Sal</h3>
+                <p class="text-center text-gray-600 mb-6" data-translate-key="salt_calculator_desc">Introduce el peso de tu col en gramos para saber la cantidad de sal recomendada (1.5% - 2%).</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <input type="number" id="cabbage-weight" class="w-full sm:w-auto px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500" placeholder="Peso en gramos">
+                    <button id="calculate-salt-btn" class="w-full sm:w-auto bg-emerald-600 text-white font-bold py-2 px-6 rounded-md hover:bg-emerald-700 transition-colors" data-translate-key="calculate_btn">Calcular</button>
+                </div>
+                <div id="salt-result" class="text-center mt-6 text-lg font-semibold text-emerald-800 h-6"></div>
+            </div>
+             <div class="text-center mt-12 fade-in-on-scroll no-print" data-share-section="sauerkraut"></div>
+
+        </section>
+
+        <!-- Ferments Comparison -->
+        <section id="comparativa" class="border-t-4 pt-16 mt-16 border-gray-200 border-dashed fade-in-on-scroll">
+            <h2 class="section-title" data-translate-key="comparison_title">🧬 Comparativa de Fermentos</h2>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="card flex flex-col">
+                    <h3 class="text-2xl font-bold text-center mb-4" data-translate-key="greek_yogurt_title">🧫 Yogur Griego</h3>
+                    <div class="space-y-3 mb-6 flex-grow"><p data-translate-key="greek_yogurt_lactose"><strong>Lactosa:</strong> <span class="font-semibold text-orange-600">⚠️ Sí</span></p><p data-translate-key="greek_yogurt_casein"><strong>Caseína:</strong> <span class="font-semibold text-red-600">✅ Completa</span></p><p data-translate-key="greek_yogurt_probiotics"><strong>Probióticos:</strong> <span class="font-semibold text-blue-600">✅ Limitados</span></p></div>
+                    <div class="bg-red-50 text-red-800 p-4 rounded-lg" data-translate-key="greek_yogurt_conclusion">Puede causar inflamación en intestinos sensibles.</div>
+                </div>
+                <div class="card flex flex-col">
+                    <h3 class="text-2xl font-bold text-center mb-4" data-translate-key="kefir_title">🥛 Kéfir Tradicional</h3>
+                    <div class="space-y-3 mb-6 flex-grow"><p data-translate-key="kefir_lactose"><strong>Lactosa:</strong> <span class="font-semibold text-yellow-600">⚠️ Casi nula si ≥48h</span></p><p data-translate-key="kefir_casein"><strong>Caseína:</strong> <span class="font-semibold text-orange-600">✅ Parcial</span></p><p data-translate-key="kefir_probiotics"><strong>Probióticos:</strong> <span class="font-semibold text-blue-600">✅ Alta diversidad</span></p></div>
+                    <div class="bg-yellow-50 text-yellow-800 p-4 rounded-lg" data-translate-key="kefir_conclusion">Mejor tolerado, pero puede irritar.</div>
+                </div>
+                <div class="card flex flex-col border-4 border-emerald-500 ring-4 ring-emerald-200">
+                    <h3 class="text-2xl font-bold text-center text-emerald-700 mb-4" data-translate-key="super_gut_title">🧬 Super Gut Yogurth</h3>
+                    <div class="space-y-3 mb-6 flex-grow"><p data-translate-key="super_gut_lactose"><strong>Lactosa:</strong> <span class="font-semibold text-green-600">🚫 Eliminada</span></p><p data-translate-key="super_gut_casein"><strong>Caseína:</strong> <span class="font-semibold text-green-600">⚠️ Predigerida</span></p><p data-translate-key="super_gut_probiotics"><strong>Probióticos:</strong> <span class="font-semibold text-green-600">✅ Concentrados</span></p></div>
+                    <div class="bg-emerald-50 text-emerald-800 p-4 rounded-lg" data-translate-key="super_gut_conclusion">Herramienta terapéutica y reparadora.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="border-t-4 pt-16 mt-16 border-gray-200 border-dashed fade-in-on-scroll">
+            <h2 class="section-title" data-translate-key="faq_title">❓ Preguntas Frecuentes</h2>
+            <div class="max-w-4xl mx-auto space-y-4">
+                <details class="card bg-gray-50">
+                    <summary class="flex justify-between items-center font-semibold text-lg">
+                        <span data-translate-key="faq_q1">¿Qué pasa si veo moho blanco en mi fermento?</span>
+                        <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <p class="mt-4 text-gray-600" data-translate-key="faq_a1">Una capa blanca y polvorienta suele ser levadura de Kahm, que es inofensiva. Simplemente retírala con una cuchara. Si ves moho con colores (verde, negro, rosa) y textura peluda, es mejor desechar el lote y empezar de nuevo, asegurándote de que los vegetales estén siempre sumergidos.</p>
+                </details>
+                <details class="card bg-gray-50">
+                    <summary class="flex justify-between items-center font-semibold text-lg">
+                        <span data-translate-key="faq_q2">¿Puedo usar otro tipo de leche para el yogur?</span>
+                        <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <p class="mt-4 text-gray-600" data-translate-key="faq_a2">Las cepas del Super Gut Yogurth están optimizadas para productos lácteos. La leche entera de vaca o cabra funciona mejor. Las leches vegetales no tienen lactosa (el alimento para las bacterias) y pueden no fermentar correctamente, resultando en una textura y perfil probiótico diferentes.</p>
+                </details>
+                <details class="card bg-gray-50">
+                    <summary class="flex justify-between items-center font-semibold text-lg">
+                        <span data-translate-key="faq_q3">Mi fermento de vegetales está muy baboso, ¿es normal?</span>
+                        <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <p class="mt-4 text-gray-600" data-translate-key="faq_a3">A veces, al principio de la fermentación, ciertas bacterias pueden producir una textura viscosa o babosa. Generalmente, esto se resuelve solo a medida que el pH baja y otras bacterias dominan el proceso. Si persiste después de una semana, podría ser un desequilibrio bacteriano, pero a menudo no es perjudicial.</p>
+                </details>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer class="gradient-bg py-16 text-center no-print">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl font-bold text-emerald-900 mb-6" data-translate-key="final_conclusion_title">🧠 Conclusión Final</h2>
+            <p class="text-lg text-emerald-800 mb-4" data-translate-key="final_conclusion_1">El <strong>Super Gut Yogurth de Cabo Health</strong> no es un simple lácteo, sino una herramienta terapéutica. Gracias a su fermentación prolongada y cepas seleccionadas, elimina la lactosa, predigiere la caseína y aporta bacterias que reparan el intestino.</p>
+            <p class="text-lg text-emerald-800 font-semibold" data-translate-key="final_conclusion_2">Con estas recetas, disfrutarás de alimentos deliciosos y funcionales. 🌿</p>
+        </div>
+    </footer>
+
+    <button id="scrollToTopBtn" class="fixed bottom-8 right-8 bg-emerald-600 text-white rounded-full p-3 shadow-lg hover:bg-emerald-700 transition-transform transform hover:scale-110 focus:outline-none no-print" aria-label="Volver arriba" data-translate-aria-label="scroll_top_aria">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>
+    </button>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- TRANSLATION LOGIC ---
+            let currentLang = 'es';
+            const translations = {
+                es: {
+                    main_title: "Recetas Probióticas con Super Gut Yogurth",
+                    main_subtitle: "Transforma tu yogur en deliciosos y saludables alimentos funcionales.",
+                    main_image_alt: "Una variedad de alimentos fermentados como queso, chucrut y kéfir",
+                    nav_cheese: "🧀 Queso",
+                    nav_whey: "💧 Usos del Suero",
+                    nav_veggies: "🥕 Vegetales",
+                    nav_sauerkraut: "🥬 Chucrut y Kimchi",
+                    nav_comparison: "🧬 Comparativa",
+                    nav_faq: "❓ FAQ",
+                    cheese_title: "🧀 Receta de Queso Probiótico",
+                    cheese_intro_1: 'El <strong>Super Gut Yogurth</strong> de Cabo Health está diseñado para <span class="text-emerald-700 font-semibold">reparar la microbiota intestinal, fortalecer la inmunidad y equilibrar el eje intestino-cerebro.</span>',
+                    cheese_intro_2: "Con este método, puedes transformarlo en un <strong>queso fresco, firme y totalmente probiótico</strong>, ideal para personas con SIBO, permeabilidad intestinal o digestiones sensibles.",
+                    cheese_method_title: "🧫 Método “en frío”",
+                    cheese_method_subtitle: "Este método no utiliza calor, lo que permite conservar activas las cepas vivas del Super Gut Yogurth.",
+                    ingredients_materials_title: "🧂 Ingredientes y Materiales",
+                    cheese_ingredient_1: "1 litro de <strong>Super Gut Yogurth</strong>",
+                    cheese_ingredient_2: "1 <strong>manta de cielo</strong> o muselina",
+                    cheese_ingredient_3: "1 colador grande o molde de queso",
+                    cheese_ingredient_4: "1 recipiente hondo para suero",
+                    cheese_ingredient_5: "1 frasco con agua o peso ligero",
+                    procedure_title: "🧊 Procedimiento",
+                    cheese_step_1: "Coloca la tela sobre el colador y <strong>vierte el yogur</strong>.",
+                    cheese_step_2: "Cubre y refrigera (4–6 °C) para escurrir.",
+                    cheese_step_3: "Deja escurrir entre <strong>24 y 36 horas</strong>.",
+                    cheese_step_4: "En las <strong>últimas 8 horas</strong>, coloca un peso ligero.",
+                    cheese_step_5: "Cuando deje de gotear, retira la masa.",
+                    print_recipe_btn: "Imprimir Receta",
+                    texture_tips_title: "💡 Consejos de Textura",
+                    texture_tip_1: "<strong>24 horas →</strong> Textura cremosa, tipo <em>labneh</em>.",
+                    texture_tip_2: "<strong>36 horas + peso →</strong> Textura firme, tipo <em>panela fresca</em>.",
+                    final_result_title: "🌿 Resultado Final del Queso",
+                    final_result_texture: "<strong>Textura:</strong> Compacta, fresca, tipo panela.",
+                    final_result_flavor: "<strong>Sabor:</strong> Suave, ligeramente ácido.",
+                    final_result_properties: "<strong>Propiedades:</strong> Probiótico, sin lactosa.",
+                    whey_title: "💧 ¿Qué Hacer con el Suero?",
+                    whey_subtitle: "¡No lo tires, es oro líquido! Contiene probióticos y postbióticos. Aquí tienes algunas ideas:",
+                    whey_use_1_title: "Fermentar Vegetales",
+                    whey_use_1_desc: "Úsalo como iniciador para chucrut, pepinos o zanahorias.",
+                    whey_use_2_title: "Refuerzo para Microbiota",
+                    whey_use_2_desc: "Toma 1 cucharada al día directamente para un extra de probióticos.",
+                    whey_use_3_title: "Fertilizante de Plantas",
+                    whey_use_3_desc: "Dilúyelo en agua (1:20) y úsalo para regar tus plantas.",
+                    veggies_title: "🥕 Receta: Lacto-fermentado con Suero Vegetal",
+                    veggies_subtitle: "Ideal para crear verduras crujientes y probióticas, usando el suero como un potente iniciador para acelerar la fermentación y aumentar la diversidad de bacterias beneficiosas.",
+                    veggies_benefits_title: "🌟 Beneficios Clave al Usar Suero",
+                    veggies_benefit_1_title: "Previene Mohos",
+                    veggies_benefit_1_desc: "Baja el pH rápidamente",
+                    veggies_benefit_2_title: "Acelera el Proceso",
+                    veggies_benefit_2_desc: "Fermentación más rápida",
+                    veggies_benefit_3_title: "Aumenta Probióticos",
+                    veggies_benefit_3_desc: "Mayor diversidad bacteriana",
+                    veggies_ingredient_1: "2 tazas de vegetales firmes",
+                    veggies_ingredient_2: "4 cdas de suero (whey)",
+                    veggies_ingredient_3: "½ a 1 cdta de sal sin refinar",
+                    veggies_ingredient_4: "Agua filtrada",
+                    veggies_ingredient_5: "Frasco de vidrio y peso",
+                    veggies_step_1: "<strong>Preparar:</strong> Lavar y cortar vegetales.",
+                    veggies_step_2: "<strong>Mezclar:</strong> Combinar suero, sal y agua.",
+                    veggies_step_3: "<strong>Empacar:</strong> Poner vegetales en el frasco.",
+                    veggies_step_4: "<strong>Cubrir:</strong> Verter la salmuera sobre los vegetales.",
+                    veggies_step_5: "<strong>Presionar:</strong> Usar un peso para sumergirlos.",
+                    veggies_step_6: "<strong>Fermentar:</strong> De 3 a 7 días en un lugar fresco.",
+                    veggies_step_7: "<strong>Almacenar:</strong> Refrigerar al gusto.",
+                    other_recipes_title: "🥬 Otras Recetas de Fermentados",
+                    sauerkraut_title: "Chucrut con Suero",
+                    sauerkraut_ingredient_1: "1 kg de col (repollo)",
+                    sauerkraut_ingredient_2: "1-2 cdas de suero",
+                    sauerkraut_ingredient_3: "15-20g de sal",
+                    sauerkraut_step_1: "Cortar la col y masajear con sal.",
+                    sauerkraut_step_2: "Añadir suero y mezclar.",
+                    sauerkraut_step_3: "Empacar en frasco y fermentar 3-7 días.",
+                    kimchi_title: "Kimchi con Suero",
+                    kimchi_ingredient_1: "1 col napa",
+                    kimchi_ingredient_2: "1 taza vegetales (rábano, etc.)",
+                    kimchi_ingredient_3: "1-2 cdas de suero",
+                    kimchi_ingredient_4: "Pasta de especias (ajo, jengibre, chile)",
+                    kimchi_step_1: "Cortar col, masajear con sal, reposar 1-2h.",
+                    kimchi_step_2: "Mezclar suero con pasta de especias.",
+                    kimchi_step_3: "Combinar todo y empacar en frasco.",
+                    kimchi_step_4: "Fermentar 3-7 días.",
+                    salt_calculator_title: "🧮 Calculadora de Sal",
+                    salt_calculator_desc: "Introduce el peso de tu col en gramos para saber la cantidad de sal recomendada (1.5% - 2%).",
+                    calculate_btn: "Calcular",
+                    salt_result_text: "Necesitarás entre {min}g y {max}g de sal.",
+                    share_text: "¡Comparte esta receta!",
+                    comparison_title: "🧬 Comparativa de Fermentos",
+                    greek_yogurt_title: "🧫 Yogur Griego",
+                    greek_yogurt_lactose: '<strong>Lactosa:</strong> <span class="font-semibold text-orange-600">⚠️ Sí</span>',
+                    greek_yogurt_casein: '<strong>Caseína:</strong> <span class="font-semibold text-red-600">✅ Completa</span>',
+                    greek_yogurt_probiotics: '<strong>Probióticos:</strong> <span class="font-semibold text-blue-600">✅ Limitados</span>',
+                    greek_yogurt_conclusion: "Puede causar inflamación en intestinos sensibles.",
+                    kefir_title: "🥛 Kéfir Tradicional",
+                    kefir_lactose: '<strong>Lactosa:</strong> <span class="font-semibold text-yellow-600">⚠️ Casi nula si ≥48h</span>',
+                    kefir_casein: '<strong>Caseína:</strong> <span class="font-semibold text-orange-600">✅ Parcial</span>',
+                    kefir_probiotics: '<strong>Probióticos:</strong> <span class="font-semibold text-blue-600">✅ Alta diversidad</span>',
+                    kefir_conclusion: "Mejor tolerado, pero puede irritar.",
+                    super_gut_title: "🧬 Super Gut Yogurth",
+                    super_gut_lactose: '<strong>Lactosa:</strong> <span class="font-semibold text-green-600">🚫 Eliminada</span>',
+                    super_gut_casein: '<strong>Caseína:</strong> <span class="font-semibold text-green-600">⚠️ Predigerida</span>',
+                    super_gut_probiotics: '<strong>Probióticos:</strong> <span class="font-semibold text-green-600">✅ Concentrados</span>',
+                    super_gut_conclusion: "Herramienta terapéutica y reparadora.",
+                    faq_title: "❓ Preguntas Frecuentes",
+                    faq_q1: "¿Qué pasa si veo moho blanco en mi fermento?",
+                    faq_a1: "Una capa blanca y polvorienta suele ser levadura de Kahm, que es inofensiva. Simplemente retírala con una cuchara. Si ves moho con colores (verde, negro, rosa) y textura peluda, es mejor desechar el lote y empezar de nuevo, asegurándote de que los vegetales estén siempre sumergidos.",
+                    faq_q2: "¿Puedo usar otro tipo de leche para el yogur?",
+                    faq_a2: "Las cepas del Super Gut Yogurth están optimizadas para productos lácteos. La leche entera de vaca o cabra funciona mejor. Las leches vegetales no tienen lactosa (el alimento para las bacterias) y pueden no fermentar correctamente, resultando en una textura y perfil probiótico diferentes.",
+                    faq_q3: "Mi fermento de vegetales está muy baboso, ¿es normal?",
+                    faq_a3: "A veces, al principio de la fermentación, ciertas bacterias pueden producir una textura viscosa o babosa. Generalmente, esto se resuelve solo a medida que el pH baja y otras bacterias dominan el proceso. Si persiste después de una semana, podría ser un desequilibrio bacteriano, pero a menudo no es perjudicial.",
+                    final_conclusion_title: "🧠 Conclusión Final",
+                    final_conclusion_1: "El <strong>Super Gut Yogurth de Cabo Health</strong> no es un simple lácteo, sino una herramienta terapéutica. Gracias a su fermentación prolongada y cepas seleccionadas, elimina la lactosa, predigiere la caseína y aporta bacterias que reparan el intestino.",
+                    final_conclusion_2: "Con estas recetas, disfrutarás de alimentos deliciosos y funcionales. 🌿",
+                    scroll_top_aria: "Volver arriba",
+                    lang_switcher_aria: "Cambiar idioma a Inglés",
+
+                },
+                en: {
+                    main_title: "Probiotic Recipes with Super Gut Yogurt",
+                    main_subtitle: "Transform your yogurt into delicious and healthy functional foods.",
+                    main_image_alt: "A variety of fermented foods like cheese, sauerkraut, and kefir",
+                    nav_cheese: "🧀 Cheese",
+                    nav_whey: "💧 Whey Uses",
+                    nav_veggies: "🥕 Vegetables",
+                    nav_sauerkraut: "🥬 Sauerkraut & Kimchi",
+                    nav_comparison: "🧬 Comparison",
+                    nav_faq: "❓ FAQ",
+                    cheese_title: "🧀 Probiotic Cheese Recipe",
+                    cheese_intro_1: 'Cabo Health\'s <strong>Super Gut Yogurt</strong> is designed to <span class="text-emerald-700 font-semibold">repair the gut microbiota, strengthen immunity, and balance the gut-brain axis.</span>',
+                    cheese_intro_2: "With this method, you can transform it into a <strong>fresh, firm, and fully probiotic cheese</strong>, ideal for people with SIBO, leaky gut, or sensitive digestion.",
+                    cheese_method_title: "🧫 “Cold” Method",
+                    cheese_method_subtitle: "This method does not use heat, which preserves the live strains of the Super Gut Yogurt.",
+                    ingredients_materials_title: "🧂 Ingredients & Materials",
+                    cheese_ingredient_1: "1 liter of <strong>Super Gut Yogurt</strong>",
+                    cheese_ingredient_2: "1 <strong>cheesecloth</strong> or muslin",
+                    cheese_ingredient_3: "1 large strainer or cheese mold",
+                    cheese_ingredient_4: "1 deep bowl for whey",
+                    cheese_ingredient_5: "1 jar with water or a light weight",
+                    procedure_title: "🧊 Procedure",
+                    cheese_step_1: "Place the cloth over the strainer and <strong>pour the yogurt</strong>.",
+                    cheese_step_2: "Cover and refrigerate (39–43°F) to drain.",
+                    cheese_step_3: "Let it drain for <strong>24 to 36 hours</strong>.",
+                    cheese_step_4: "In the <strong>last 8 hours</strong>, place a light weight on top.",
+                    cheese_step_5: "When it stops dripping, remove the mass.",
+                    print_recipe_btn: "Print Recipe",
+                    texture_tips_title: "💡 Texture Tips",
+                    texture_tip_1: "<strong>24 hours →</strong> Creamy texture, like <em>labneh</em>.",
+                    texture_tip_2: "<strong>36 hours + weight →</strong> Firm texture, like <em>fresh panela</em>.",
+                    final_result_title: "🌿 Final Cheese Result",
+                    final_result_texture: "<strong>Texture:</strong> Compact, fresh, panela-like.",
+                    final_result_flavor: "<strong>Flavor:</strong> Mild, slightly acidic.",
+                    final_result_properties: "<strong>Properties:</strong> Probiotic, lactose-free.",
+                    whey_title: "💧 What to Do with Whey?",
+                    whey_subtitle: "Don't throw it away, it's liquid gold! It contains probiotics and postbiotics. Here are some ideas:",
+                    whey_use_1_title: "Ferment Vegetables",
+                    whey_use_1_desc: "Use it as a starter for sauerkraut, pickles, or carrots.",
+                    whey_use_2_title: "Microbiota Booster",
+                    whey_use_2_desc: "Take 1 tablespoon a day directly for an extra probiotic boost.",
+                    whey_use_3_title: "Plant Fertilizer",
+                    whey_use_3_desc: "Dilute it with water (1:20) and use it to water your plants.",
+                    veggies_title: "🥕 Recipe: Lacto-fermented Veggies with Whey",
+                    veggies_subtitle: "Ideal for creating crunchy, probiotic vegetables, using whey as a powerful starter to speed up fermentation and increase the diversity of beneficial bacteria.",
+                    veggies_benefits_title: "🌟 Key Benefits of Using Whey",
+                    veggies_benefit_1_title: "Prevents Mold",
+                    veggies_benefit_1_desc: "Lowers pH quickly",
+                    veggies_benefit_2_title: "Speeds Up Process",
+                    veggies_benefit_2_desc: "Faster fermentation",
+                    veggies_benefit_3_title: "Boosts Probiotics",
+                    veggies_benefit_3_desc: "Greater bacterial diversity",
+                    veggies_ingredient_1: "2 cups of firm vegetables",
+                    veggies_ingredient_2: "4 tbsp of whey",
+                    veggies_ingredient_3: "½ to 1 tsp of unrefined salt",
+                    veggies_ingredient_4: "Filtered water",
+                    veggies_ingredient_5: "Glass jar and weight",
+                    veggies_step_1: "<strong>Prepare:</strong> Wash and cut vegetables.",
+                    veggies_step_2: "<strong>Mix:</strong> Combine whey, salt, and water.",
+                    veggies_step_3: "<strong>Pack:</strong> Place vegetables in the jar.",
+                    veggies_step_4: "<strong>Cover:</strong> Pour the brine over the vegetables.",
+                    veggies_step_5: "<strong>Press:</strong> Use a weight to submerge them.",
+                    veggies_step_6: "<strong>Ferment:</strong> For 3 to 7 days in a cool place.",
+                    veggies_step_7: "<strong>Store:</strong> Refrigerate when ready.",
+                    other_recipes_title: "🥬 Other Fermented Recipes",
+                    sauerkraut_title: "Sauerkraut with Whey",
+                    sauerkraut_ingredient_1: "1 kg of cabbage",
+                    sauerkraut_ingredient_2: "1-2 tbsp of whey",
+                    sauerkraut_ingredient_3: "15-20g of salt",
+                    sauerkraut_step_1: "Chop the cabbage and massage with salt.",
+                    sauerkraut_step_2: "Add whey and mix well.",
+                    sauerkraut_step_3: "Pack into a jar and ferment for 3-7 days.",
+                    kimchi_title: "Kimchi with Whey",
+                    kimchi_ingredient_1: "1 napa cabbage",
+                    kimchi_ingredient_2: "1 cup vegetables (radish, etc.)",
+                    kimchi_ingredient_3: "1-2 tbsp of whey",
+                    kimchi_ingredient_4: "Spice paste (garlic, ginger, chili)",
+                    kimchi_step_1: "Chop cabbage, massage with salt, let rest 1-2h.",
+                    kimchi_step_2: "Mix whey with spice paste.",
+                    kimchi_step_3: "Combine everything and pack into a jar.",
+                    kimchi_step_4: "Ferment for 3-7 days.",
+                    salt_calculator_title: "🧮 Salt Calculator",
+                    salt_calculator_desc: "Enter the weight of your cabbage in grams to find the recommended amount of salt (1.5% - 2%).",
+                    calculate_btn: "Calculate",
+                    salt_result_text: "You will need between {min}g and {max}g of salt.",
+                    share_text: "Share this recipe!",
+                    comparison_title: "🧬 Ferments Comparison",
+                    greek_yogurt_title: "🧫 Greek Yogurt",
+                    greek_yogurt_lactose: '<strong>Lactose:</strong> <span class="font-semibold text-orange-600">⚠️ Yes</span>',
+                    greek_yogurt_casein: '<strong>Casein:</strong> <span class="font-semibold text-red-600">✅ Complete</span>',
+                    greek_yogurt_probiotics: '<strong>Probiotics:</strong> <span class="font-semibold text-blue-600">✅ Limited</span>',
+                    greek_yogurt_conclusion: "Can cause inflammation in sensitive guts.",
+                    kefir_title: "🥛 Traditional Kefir",
+                    kefir_lactose: '<strong>Lactose:</strong> <span class="font-semibold text-yellow-600">⚠️ Almost none if ≥48h</span>',
+                    kefir_casein: '<strong>Casein:</strong> <span class="font-semibold text-orange-600">✅ Partial</span>',
+                    kefir_probiotics: '<strong>Probiotics:</strong> <span class="font-semibold text-blue-600">✅ High diversity</span>',
+                    kefir_conclusion: "Better tolerated, but can be irritating.",
+                    super_gut_title: "🧬 Super Gut Yogurt",
+                    super_gut_lactose: '<strong>Lactose:</strong> <span class="font-semibold text-green-600">🚫 None</span>',
+                    super_gut_casein: '<strong>Casein:</strong> <span class="font-semibold text-green-600">⚠️ Predigested</span>',
+                    super_gut_probiotics: '<strong>Probiotics:</strong> <span class="font-semibold text-green-600">✅ Concentrated</span>',
+                    super_gut_conclusion: "A therapeutic and restorative tool.",
+                    faq_title: "❓ Frequently Asked Questions",
+                    faq_q1: "What if I see white mold on my ferment?",
+                    faq_a1: "A white, powdery layer is usually Kahm yeast, which is harmless. Simply spoon it off. If you see colorful (green, black, pink) and fuzzy mold, it's best to discard the batch and start over, ensuring the vegetables are always submerged.",
+                    faq_q2: "Can I use a different type of milk for the yogurt?",
+                    faq_a2: "The strains in Super Gut Yogurt are optimized for dairy. Whole cow's or goat's milk works best. Plant-based milks lack lactose (the food for the bacteria) and may not ferment correctly, resulting in a different texture and probiotic profile.",
+                    faq_q3: "My vegetable ferment is slimy, is that normal?",
+                    faq_a3: "Sometimes, early in the fermentation, certain bacteria can produce a viscous or slimy texture. This usually resolves on its own as the pH drops and other bacteria dominate the process. If it persists after a week, it might be a bacterial imbalance, but it's often not harmful.",
+                    final_conclusion_title: "🧠 Final Conclusion",
+                    final_conclusion_1: "<strong>Cabo Health's Super Gut Yogurt</strong> is not just a dairy product, but a therapeutic tool. Thanks to its prolonged fermentation and selected strains, it eliminates lactose, predigests casein, and provides bacteria that repair the gut.",
+                    final_conclusion_2: "With these recipes, you will enjoy delicious and functional foods. 🌿",
+                    scroll_top_aria: "Scroll to top",
+                    lang_switcher_aria: "Switch language to Spanish",
+                }
+            };
+            
+            const langSwitcher = document.getElementById('lang-switcher');
+
+            function translatePage(lang) {
+                document.querySelectorAll('[data-translate-key]').forEach(el => {
+                    const key = el.dataset.translateKey;
+                    if (translations[lang] && translations[lang][key]) {
+                        el.innerHTML = translations[lang][key];
+                    }
+                });
+
+                 // Translate attributes
+                document.querySelectorAll('[data-translate-aria-label]').forEach(el => {
+                    const key = el.dataset.translateAriaLabel;
+                    if (translations[lang] && translations[lang][key]) {
+                        el.setAttribute('aria-label', translations[lang][key]);
+                    }
+                });
+                document.querySelectorAll('[data-translate-alt-key]').forEach(el => {
+                    const key = el.dataset.translateAltKey;
+                    if (translations[lang] && translations[lang][key]) {
+                        el.setAttribute('alt', translations[lang][key]);
+                    }
+                });
+
+                document.documentElement.lang = lang;
+                updateShareButtons(lang);
+            }
+
+            langSwitcher.addEventListener('click', () => {
+                if (currentLang === 'es') {
+                    currentLang = 'en';
+                    translatePage('en');
+                    langSwitcher.textContent = 'Español';
+                } else {
+                    currentLang = 'es';
+                    translatePage('es');
+                    langSwitcher.textContent = 'English';
+                }
+            });
+
+
+            // --- Scroll to Top Button Logic ---
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            window.onscroll = function() {
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    scrollToTopBtn.style.display = "block";
+                } else {
+                    scrollToTopBtn.style.display = "none";
+                }
+            };
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // --- Scroll Animation Logic ---
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            const elementsToAnimate = document.querySelectorAll('.fade-in-on-scroll');
+            elementsToAnimate.forEach(el => scrollObserver.observe(el));
+            
+            // --- Active Nav Link Logic ---
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a');
+            const navObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                        });
+                    }
+                });
+            }, { rootMargin: '-50% 0px -50% 0px' });
+            sections.forEach(section => navObserver.observe(section));
+
+            // --- Salt Calculator Logic ---
+            const calculateBtn = document.getElementById('calculate-salt-btn');
+            const weightInput = document.getElementById('cabbage-weight');
+            const resultDiv = document.getElementById('salt-result');
+
+            calculateBtn.addEventListener('click', () => {
+                const weight = parseFloat(weightInput.value);
+                if (isNaN(weight) || weight <= 0) {
+                    resultDiv.textContent = '';
+                    return;
+                }
+                const minSalt = (weight * 0.015).toFixed(1);
+                const maxSalt = (weight * 0.02).toFixed(1);
+                const resultText = translations[currentLang].salt_result_text
+                    .replace('{min}', minSalt)
+                    .replace('{max}', maxSalt);
+                resultDiv.textContent = resultText;
+            });
+
+             // --- Share Button Logic ---
+            const shareSections = document.querySelectorAll('[data-share-section]');
+            
+            function updateShareButtons(lang) {
+                const shareText = translations[lang].share_text;
+                shareSections.forEach(container => {
+                    const sectionId = container.dataset.shareSection;
+                    const url = `${window.location.href.split('#')[0]}#receta-${sectionId}`;
+                    const titleKey = `${sectionId}_title`;
+                    // A mapping for section IDs to translation keys if they don't match perfectly
+                    const titleKeyMap = {
+                        'vegetables': 'veggies_title',
+                        'sauerkraut': 'other_recipes_title'
+                    };
+                    const resolvedTitleKey = titleKeyMap[sectionId] || titleKey;
+                    const title = translations[lang][resolvedTitleKey] ? translations[lang][resolvedTitleKey].replace(/<[^>]*>/g, '').trim() : "Receta Probiótica";
+
+                    const encodedUrl = encodeURIComponent(url);
+                    const encodedTitle = encodeURIComponent(translations[lang].main_title + " - " + title);
+
+                    container.innerHTML = `
+                        <h4 class="font-semibold text-lg mb-4">${shareText}</h4>
+                        <div class="flex justify-center items-center gap-4">
+                            <a href="https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}" target="_blank" class="text-gray-500 hover:text-green-500 transition-colors" aria-label="Share on WhatsApp">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.512 1.924 6.341l-.225 1.419 1.425-.366zm6.184-5.432c-.349-.174-2.06-.99-2.379-1.103-.319-.112-.552-.174-.784.173-.232.348-.898 1.103-1.102 1.334s-.403.261-.752.087c-.349-.174-1.48- .547-2.82-1.743s-1.899-2.902-2.197-3.388c-.298-.486-.052-.734.122-.907.16-.16.349-.417.523-.62.174-.204.232-.348.348-.582s.058-.458-.029-.632c-.087-.174-.784-1.899-1.076-2.604-.292-.704-.584-.607-.784-.618h-.485c-.232 0-.622.058-1.002.581s-1.282 1.258-1.282 3.021c0 1.762 1.31 3.501 1.484 3.733s2.553 3.886 6.207 5.472c.482.204.863.326 1.159.417.472.146.924.128 1.282.087.396-.043 1.258-.512 1.424-1.001.166-.487.166-.907.112-1.002s-.174-.174-.348-.348z"/></svg>
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}" target="_blank" class="text-gray-500 hover:text-sky-500 transition-colors" aria-label="Share on X">
+                               <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}" target="_blank" class="text-gray-500 hover:text-blue-600 transition-colors" aria-label="Share on Facebook">
+                               <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7.02H7.97v-2.89H10.4v-2.07c0-2.42 1.42-3.76 3.65-3.76.99 0 1.99.18 1.99.18v2.54h-1.3c-1.18 0-1.55.74-1.55 1.48v1.78h2.81l-.45 2.89h-2.36v7.02c4.78-.75 8.44-4.9 8.44-9.9C22 6.53 17.5 2.04 12 2.04z"/></svg>
+                            </a>
+                        </div>`;
+                });
+            }
+
+            updateShareButtons(currentLang);
+            translatePage(currentLang); // Initial translation
+        });
+
+        // --- Print Recipe Function ---
+        function printRecipe(cardId) {
+            const cardToPrint = document.getElementById(cardId);
+            if (cardToPrint) {
+                const printContainer = document.createElement('div');
+                printContainer.classList.add('print-section');
+                
+                let titleHTML = '';
+                const sectionTitleElement = cardToPrint.closest('section').querySelector('.section-title');
+                if (sectionTitleElement) {
+                     titleHTML = `<h2 style="font-size: 24px; font-weight: bold; margin-bottom: 20px; text-align: center;">${sectionTitleElement.innerHTML}</h2>`;
+                } else { // Fallback for cards in the same section but different structure
+                    const h3Title = cardToPrint.querySelector('h3');
+                    if(h3Title) titleHTML = `<h2 style="font-size: 24px; font-weight: bold; margin-bottom: 20px; text-align: center;">${h3Title.innerHTML}</h2>`;
+                }
+                
+                printContainer.innerHTML = titleHTML + cardToPrint.innerHTML;
+
+                const buttonInClone = printContainer.querySelector('.print-btn');
+                if(buttonInClone) buttonInClone.remove();
+                
+                document.body.appendChild(printContainer);
+                window.print();
+                document.body.removeChild(printContainer);
+            }
+        }
+    </script>
+</body>
+</html>
+
