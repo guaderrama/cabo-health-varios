@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título y Descripción (se actualizarán con JS) -->
+    <title>Péptidos Bioreguladores: Guía Visual y Clara (EN/ES)</title>
+    <meta name="description" content="Guía visual bilingüe sobre el mecanismo propuesto de los péptidos bioreguladores: cómo podrían interactuar con las células. Solo educativo.">
+
+…        updateContent(currentLang);
+    });
+    </script>
+</body>
+</html>
+
